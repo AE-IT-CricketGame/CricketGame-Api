@@ -1,0 +1,13 @@
+{
+  "collectionName": "components_questions_question_2s",
+  "info": {
+    "displayName": "question_2",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "question": {
+      "type": "string"
+    }
+  }
+}

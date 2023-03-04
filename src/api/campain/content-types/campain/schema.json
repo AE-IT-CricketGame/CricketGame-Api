@@ -1,0 +1,47 @@
+{
+  "kind": "collectionType",
+  "collectionName": "campains",
+  "info": {
+    "singularName": "campain",
+    "pluralName": "campains",
+    "displayName": "Campain",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "campain_name": {
+      "type": "string"
+    },
+    "prize": {
+      "type": "biginteger"
+    },
+    "question_1": {
+      "type": "component",
+      "repeatable": true,
+      "component": "questions.question-1",
+      "max": 3
+    },
+    "questions_2": {
+      "type": "component",
+      "repeatable": true,
+      "component": "questions.question-2"
+    },
+    "answers": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::answer.answer",
+      "mappedBy": "campain"
+    },
+    "question": {
+      "type": "dynamiczone",
+      "components": [
+        "questions.question-1",
+        "questions.question-2"
+      ],
+      "max": 5
+    }
+  }
+}
