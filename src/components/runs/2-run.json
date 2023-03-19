@@ -1,0 +1,22 @@
+{
+  "collectionName": "components_runs_2_runs",
+  "info": {
+    "displayName": "2_run",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "question_id": {
+      "type": "integer"
+    },
+    "question": {
+      "type": "string"
+    },
+    "answers": {
+      "type": "string"
+    },
+    "correct_answer": {
+      "type": "string"
+    }
+  }
+}

@@ -4,7 +4,7 @@
   "info": {
     "singularName": "campain",
     "pluralName": "campains",
-    "displayName": "Campain",
+    "displayName": "Campaign",
     "description": ""
   },
   "options": {
@@ -12,36 +12,43 @@
   },
   "pluginOptions": {},
   "attributes": {
+    "campain_id": {
+      "type": "integer"
+    },
     "campain_name": {
       "type": "string"
     },
-    "prize": {
-      "type": "biginteger"
+    "win_prize": {
+      "type": "string"
     },
-    "question_1": {
-      "type": "component",
-      "repeatable": true,
-      "component": "questions.question-1",
-      "max": 3
+    "start_time": {
+      "type": "datetime"
     },
-    "questions_2": {
-      "type": "component",
-      "repeatable": true,
-      "component": "questions.question-2"
+    "end_time": {
+      "type": "datetime"
     },
-    "answers": {
-      "type": "relation",
-      "relation": "oneToMany",
-      "target": "api::answer.answer",
-      "mappedBy": "campain"
+    "wallpaper": {
+      "type": "media",
+      "multiple": true,
+      "required": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
     },
     "question": {
-      "type": "dynamiczone",
-      "components": [
-        "questions.question-1",
-        "questions.question-2"
-      ],
-      "max": 5
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::question.question",
+      "inversedBy": "campaigns"
+    },
+    "player": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::player.player",
+      "inversedBy": "campaigns"
     }
   }
 }
