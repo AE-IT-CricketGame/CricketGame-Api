@@ -1,0 +1,48 @@
+{
+  "kind": "collectionType",
+  "collectionName": "questions",
+  "info": {
+    "singularName": "question",
+    "pluralName": "questions",
+    "displayName": "Questions",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "question": {
+      "type": "string"
+    },
+    "correct_answer": {
+      "type": "string"
+    },
+    "answerss": {
+      "type": "richtext"
+    },
+    "runs": {
+      "type": "enumeration",
+      "enum": [
+        "Run 1",
+        "Run 2",
+        "Run 4",
+        "Run 6"
+      ]
+    },
+    "duration": {
+      "type": "time"
+    },
+    "campaigns": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::campain.campain",
+      "mappedBy": "question"
+    },
+    "q_id": {
+      "type": "integer",
+      "required": true,
+      "unique": true
+    }
+  }
+}
