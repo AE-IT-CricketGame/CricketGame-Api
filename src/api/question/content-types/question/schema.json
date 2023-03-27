@@ -1,0 +1,43 @@
+{
+  "kind": "collectionType",
+  "collectionName": "questions",
+  "info": {
+    "singularName": "question",
+    "pluralName": "questions",
+    "displayName": "Questions",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "question": {
+      "type": "string"
+    },
+    "correct_answer": {
+      "type": "string"
+    },
+    "duration": {
+      "type": "time"
+    },
+    "campaigns": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::campain.campain",
+      "mappedBy": "question"
+    },
+    "answer_1": {
+      "type": "string"
+    },
+    "answer_2": {
+      "type": "string"
+    },
+    "answer_3": {
+      "type": "string"
+    },
+    "answer_4": {
+      "type": "string"
+    }
+  }
+}

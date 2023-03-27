@@ -1,0 +1,54 @@
+{
+  "kind": "collectionType",
+  "collectionName": "campains",
+  "info": {
+    "singularName": "campain",
+    "pluralName": "campains",
+    "displayName": "Campaign",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "campain_id": {
+      "type": "integer"
+    },
+    "campain_name": {
+      "type": "string"
+    },
+    "win_prize": {
+      "type": "string"
+    },
+    "start_time": {
+      "type": "datetime"
+    },
+    "end_time": {
+      "type": "datetime"
+    },
+    "wallpaper": {
+      "type": "media",
+      "multiple": true,
+      "required": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "question": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::question.question",
+      "inversedBy": "campaigns"
+    },
+    "player": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::player.player",
+      "inversedBy": "campaigns"
+    }
+  }
+}
