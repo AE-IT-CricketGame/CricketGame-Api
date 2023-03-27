@@ -18,18 +18,6 @@
     "correct_answer": {
       "type": "string"
     },
-    "answerss": {
-      "type": "richtext"
-    },
-    "runs": {
-      "type": "enumeration",
-      "enum": [
-        "Run 1",
-        "Run 2",
-        "Run 4",
-        "Run 6"
-      ]
-    },
     "duration": {
       "type": "time"
     },
@@ -39,10 +27,17 @@
       "target": "api::campain.campain",
       "mappedBy": "question"
     },
-    "q_id": {
-      "type": "integer",
-      "required": true,
-      "unique": true
+    "answer_1": {
+      "type": "string"
+    },
+    "answer_2": {
+      "type": "string"
+    },
+    "answer_3": {
+      "type": "string"
+    },
+    "answer_4": {
+      "type": "string"
     }
   }
 }
