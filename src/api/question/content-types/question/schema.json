@@ -38,6 +38,15 @@
     },
     "answer_4": {
       "type": "string"
+    },
+    "runs": {
+      "type": "enumeration",
+      "enum": [
+        "Run_1",
+        "Run_2",
+        "Run_4",
+        "Run_6"
+      ]
     }
   }
 }
