@@ -5,7 +5,10 @@ const { createCoreController } = require('@strapi/strapi').factories;
 module.exports = createCoreController('api::question.question', () => ({
   async getOne(ctx, next) {
     try {
-      let runs = parseInt(ctx.params.runs);
+      const ids = ctx.query.ids;
+      const runs = parseInt(ctx.params.runs);
+
+      const arrayIds = ids ? ids.split(",").map(id => parseInt(id)) : [];
 
       let run;
       switch (runs) {
@@ -22,19 +25,23 @@ module.exports = createCoreController('api::question.question', () => ({
           run = 'Run_6';
           break;
         default:
-          
-          break;
+          throw new Error(`Invalid value for 'runs': ${runs}`);
       }
-  
+
       const questions = await strapi.query('api::question.question').findMany({ 
         runs: run,
       });
-  
-      const filteredQuestions = questions.filter(question => question.runs === run);
-      
+
+      const filteredData = questions.filter((data) => !arrayIds.includes(data.id));
+
+      const filteredQuestions = filteredData.filter(question => question.runs === run);
+
+      if (filteredQuestions.length === 0) {
+        throw new Error(`No questions found for 'runs': ${runs}`);
+      }
+
       const randomIndex = Math.floor(Math.random() * filteredQuestions.length);
       const randomItem = filteredQuestions[randomIndex];
-  
 
       ctx.body = randomItem;
     } catch (error) {
