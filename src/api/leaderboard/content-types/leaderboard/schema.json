@@ -1,0 +1,28 @@
+{
+  "kind": "collectionType",
+  "collectionName": "leaderboards",
+  "info": {
+    "singularName": "leaderboard",
+    "pluralName": "leaderboards",
+    "displayName": "Leaderboard",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "player": {
+      "type": "string"
+    },
+    "score": {
+      "type": "string"
+    },
+    "campaign": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::campaign.campaign",
+      "inversedBy": "leaderboards"
+    }
+  }
+}

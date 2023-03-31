@@ -17,12 +17,6 @@
     },
     "mobile": {
       "type": "string"
-    },
-    "campaigns": {
-      "type": "relation",
-      "relation": "oneToMany",
-      "target": "api::campain.campain",
-      "mappedBy": "player"
     }
   }
 }

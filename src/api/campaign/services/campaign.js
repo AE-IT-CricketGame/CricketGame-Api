@@ -1,9 +1,9 @@
 'use strict';
 
 /**
- * campain service
+ * campaign service
  */
 
 const { createCoreService } = require('@strapi/strapi').factories;
 
-module.exports = createCoreService('api::campain.campain');
+module.exports = createCoreService('api::campaign.campaign');

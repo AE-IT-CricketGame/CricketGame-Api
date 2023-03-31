@@ -1,9 +1,9 @@
 {
   "kind": "collectionType",
-  "collectionName": "campains",
+  "collectionName": "campaigns",
   "info": {
-    "singularName": "campain",
-    "pluralName": "campains",
+    "singularName": "campaign",
+    "pluralName": "campaigns",
     "displayName": "Campaign",
     "description": ""
   },
@@ -12,13 +12,7 @@
   },
   "pluginOptions": {},
   "attributes": {
-    "campain_id": {
-      "type": "integer"
-    },
-    "campain_name": {
-      "type": "string"
-    },
-    "win_prize": {
+    "campaign_name": {
       "type": "string"
     },
     "start_time": {
@@ -26,6 +20,9 @@
     },
     "end_time": {
       "type": "datetime"
+    },
+    "prize": {
+      "type": "biginteger"
     },
     "wallpaper": {
       "type": "media",
@@ -38,17 +35,11 @@
         "audios"
       ]
     },
-    "question": {
+    "leaderboards": {
       "type": "relation",
-      "relation": "manyToOne",
-      "target": "api::question.question",
-      "inversedBy": "campaigns"
-    },
-    "player": {
-      "type": "relation",
-      "relation": "manyToOne",
-      "target": "api::player.player",
-      "inversedBy": "campaigns"
+      "relation": "oneToMany",
+      "target": "api::leaderboard.leaderboard",
+      "mappedBy": "campaign"
     }
   }
 }

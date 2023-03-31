@@ -21,12 +21,6 @@
     "duration": {
       "type": "time"
     },
-    "campaigns": {
-      "type": "relation",
-      "relation": "oneToMany",
-      "target": "api::campain.campain",
-      "mappedBy": "question"
-    },
     "answer_1": {
       "type": "string"
     },
@@ -47,6 +41,9 @@
         "Run_4",
         "Run_6"
       ]
+    },
+    "durations": {
+      "type": "integer"
     }
   }
 }
