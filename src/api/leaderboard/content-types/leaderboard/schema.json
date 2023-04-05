@@ -23,6 +23,12 @@
       "relation": "manyToOne",
       "target": "api::campaign.campaign",
       "inversedBy": "leaderboards"
+    },
+    "points": {
+      "type": "integer"
+    },
+    "mobile": {
+      "type": "string"
     }
   }
 }

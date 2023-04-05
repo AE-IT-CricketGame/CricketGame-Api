@@ -1,0 +1,12 @@
+{
+  "collectionName": "components_rules_rules",
+  "info": {
+    "displayName": "rule"
+  },
+  "options": {},
+  "attributes": {
+    "rule": {
+      "type": "string"
+    }
+  }
+}

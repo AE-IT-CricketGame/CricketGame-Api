@@ -40,6 +40,14 @@
       "relation": "oneToMany",
       "target": "api::leaderboard.leaderboard",
       "mappedBy": "campaign"
+    },
+    "rules": {
+      "type": "component",
+      "repeatable": true,
+      "component": "rules.rule"
+    },
+    "matchSize": {
+      "type": "integer"
     }
   }
 }
