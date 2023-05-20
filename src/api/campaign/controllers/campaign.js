@@ -1,9 +1,9 @@
 'use strict';
 
 /**
- * campain controller
+ * campaign controller
  */
 
 const { createCoreController } = require('@strapi/strapi').factories;
 
-module.exports = createCoreController('api::campain.campain');
+module.exports = createCoreController('api::campaign.campaign');
