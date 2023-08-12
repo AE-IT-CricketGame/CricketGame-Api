@@ -1,9 +1,9 @@
 'use strict';
 
 /**
- * player service
+ * admin service
  */
 
 const { createCoreService } = require('@strapi/strapi').factories;
 
-module.exports = createCoreService('api::player.player');
+module.exports = createCoreService('api::admin.admin');

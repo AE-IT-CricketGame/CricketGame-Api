@@ -1,0 +1,19 @@
+{
+  "kind": "collectionType",
+  "collectionName": "sms_templates",
+  "info": {
+    "singularName": "sms-template",
+    "pluralName": "sms-templates",
+    "displayName": "SMS Templates",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "sms": {
+      "type": "text"
+    }
+  }
+}
