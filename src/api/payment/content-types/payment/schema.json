@@ -1,0 +1,32 @@
+{
+  "kind": "collectionType",
+  "collectionName": "payments",
+  "info": {
+    "singularName": "payment",
+    "pluralName": "payments",
+    "displayName": "Payment",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "service_provider": {
+      "type": "string"
+    },
+    "cycle": {
+      "type": "integer"
+    },
+    "serverRef": {
+      "type": "string"
+    },
+    "ipdated": {
+      "type": "date"
+    },
+    "mobile": {
+      "type": "string",
+      "unique": true
+    }
+  }
+}
