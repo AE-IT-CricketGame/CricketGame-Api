@@ -7,3 +7,14 @@ module.exports = {
       }
     ]
   }
+
+
+  module.exports = {
+    routes: [
+      {
+        method: 'POST',
+        path: '/payments/cycle/delete',
+        handler: 'update.cycleDelete',
+      }
+    ]
+  }
