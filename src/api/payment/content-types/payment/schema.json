@@ -27,6 +27,9 @@
     "mobile": {
       "type": "string",
       "unique": true
+    },
+    "log": {
+      "type": "text"
     }
   }
 }
