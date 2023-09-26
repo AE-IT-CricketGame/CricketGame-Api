@@ -35,6 +35,7 @@ module.exports = createCoreController('api::payment.payment', () => ({
                             {
                                 data: {
                                     cycle: 0,
+                                    log:"",
                                 },
                             }
                         );
