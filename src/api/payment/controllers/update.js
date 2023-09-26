@@ -11,6 +11,7 @@ module.exports = createCoreController('api::payment.payment', () => ({
         try {
             console.log("data")
             const mobile = ctx.request.query.mobile;
+            const log =  ctx.request.query.log;
             const cycle = parseInt(ctx.request.query.cycle, 10);
 
             // Check if the conversion was successful
@@ -32,6 +33,7 @@ module.exports = createCoreController('api::payment.payment', () => ({
             const entry = await strapi.entityService.update('api::payment.payment', userId, {
                 data: {
                     cycle: cycle,
+                    log:log,
                 },
             });
 
