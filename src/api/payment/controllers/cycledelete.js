@@ -19,7 +19,7 @@ module.exports = createCoreController('api::payment.payment', () => ({
             }
         
             // Filter users with cycle === 0
-            const usersToUpdate = findUsers.filter(user => user.cycle === 1);
+            const usersToUpdate = findUsers.filter(user => user.cycle === 2);
         
             if (usersToUpdate.length === 0) {
                 ctx.response.status = 404;
