@@ -34,7 +34,7 @@ module.exports = createCoreController('api::payment.payment', () => ({
                             userId,
                             {
                                 data: {
-                                    cycle: 2,
+                                    cycle: 3,
                                     log:"",
                                 },
                             }
