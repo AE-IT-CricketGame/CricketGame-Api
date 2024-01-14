@@ -29,6 +29,7 @@ module.exports = createCoreController('api::leaderboard.leaderboard', () => ({
                     {
                         data: {
                             score: "0/0",
+                            points:0,
                             log: "",
                         },
                     }
