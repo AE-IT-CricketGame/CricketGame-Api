@@ -1,0 +1,63 @@
+'use strict';
+
+/**
+ * Frimi controller
+ */
+
+const { createCoreController } = require('@strapi/strapi').factories;
+const { getCustomerDetails } = require('../frimi-custom-api/frimi-getCustomerDetails');
+
+module.exports = createCoreController('api::frimi-player.frimi-player', () => ({
+    async userlogin(ctx) {
+
+        const { uuid, mid, lid } = ctx.request.body;
+
+        if (!uuid || !mid || !lid) {
+            return ctx.badRequest('Missing required parameters: uuid, mid, or lid');
+        }
+
+        try {
+            const customerDetails = await getCustomerDetails(uuid, mid, lid);
+
+            console.log("Customer details fetched successfully",customerDetails.data);
+            const name = customerDetails.data.firstname;
+            const mobile = customerDetails.data.mobile;
+            const nic = customerDetails.data.nic;
+            const walletid = customerDetails.data.wallet_id;
+
+            const existingUser = await strapi.entityService.findMany('api::frimi-player.frimi-player', {
+                filters: { wallet_id: walletid },
+                limit: 1,
+            });
+
+
+            if (existingUser.length > 0) {
+                return ctx.send({
+                    message: 'Customer already exists',
+                    data: existingUser[0],
+                });
+            }
+
+            const addFrimiUser = await strapi.entityService.create('api::frimi-player.frimi-player', {
+                data: {
+                    username: name,
+                    mobile: mobile,
+                    wallet_id: walletid,
+                    nic: nic,
+                    uuid: uuid,
+                    mid: mid,
+                    lid: lid,
+                },
+            });
+
+            return ctx.send({
+                message: 'Customer details added successfully',
+                data: addFrimiUser,
+
+            });
+        } catch (error) {
+            console.error('Error:', error.message);
+            ctx.throw(500, 'An error occurred during the process');
+        }
+    },
+}));
