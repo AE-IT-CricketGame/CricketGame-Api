@@ -53,6 +53,7 @@ module.exports = createCoreController('api::frimi-player.frimi-player', () => ({
             return ctx.send({
                 message: 'Customer details added successfully',
                 data: addFrimiUser,
+                tag: 'FRIMI',
 
             });
         } catch (error) {
