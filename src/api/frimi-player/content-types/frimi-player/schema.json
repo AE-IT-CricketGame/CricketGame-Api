@@ -1,0 +1,37 @@
+{
+  "kind": "collectionType",
+  "collectionName": "frimi_players",
+  "info": {
+    "singularName": "frimi-player",
+    "pluralName": "frimi-players",
+    "displayName": "Frimi-player",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "wallet_id": {
+      "type": "string"
+    },
+    "username": {
+      "type": "string"
+    },
+    "mobile": {
+      "type": "string"
+    },
+    "uuid": {
+      "type": "string"
+    },
+    "lid": {
+      "type": "string"
+    },
+    "mid": {
+      "type": "string"
+    },
+    "nic": {
+      "type": "string"
+    }
+  }
+}
