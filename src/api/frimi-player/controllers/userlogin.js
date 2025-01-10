@@ -10,7 +10,9 @@ const { getCustomerDetails } = require('../frimi-custom-api/frimi-getCustomerDet
 module.exports = createCoreController('api::frimi-player.frimi-player', () => ({
     async userlogin(ctx) {
 
-        const { uuid, mid, lid } = ctx.request.body;
+        const { uuid } = ctx.request.body;
+        const mid = "2410280192387";
+        const lid =  "L030";
 
         if (!uuid || !mid || !lid) {
             return ctx.badRequest('Missing required parameters: uuid, mid, or lid');
@@ -35,6 +37,7 @@ module.exports = createCoreController('api::frimi-player.frimi-player', () => ({
                 return ctx.send({
                     message: 'Customer already exists',
                     data: existingUser[0],
+                    tag: 'FRIMI',
                 });
             }
 
