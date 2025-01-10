@@ -21,11 +21,16 @@ module.exports = createCoreController('api::frimi-player.frimi-player', () => ({
         try {
             const customerDetails = await getCustomerDetails(uuid, mid, lid);
 
-            console.log("Customer details fetched successfully",customerDetails.data);
+            if (customerDetails.data.mobile === null) {
+                return ctx.badRequest('No customer details found');
+            }
+
             const name = customerDetails.data.firstname;
             const mobile = customerDetails.data.mobile;
             const nic = customerDetails.data.nic;
             const walletid = customerDetails.data.wallet_id;
+
+            console.log("Customer",customerDetails)
 
             const existingUser = await strapi.entityService.findMany('api::frimi-player.frimi-player', {
                 filters: { wallet_id: walletid },
