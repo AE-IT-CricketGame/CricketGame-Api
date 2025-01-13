@@ -24,12 +24,6 @@
     "uuid": {
       "type": "string"
     },
-    "lid": {
-      "type": "string"
-    },
-    "mid": {
-      "type": "string"
-    },
     "nic": {
       "type": "string"
     }
