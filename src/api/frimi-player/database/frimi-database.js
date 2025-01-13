@@ -18,4 +18,18 @@ const addFrimiUser = async (userData) => {
     });
 };
 
-module.exports = { findUserByWalletId, addFrimiUser };
+const getWallets = async () => {
+    return await strapi.entityService.findMany('api::frimi-player.frimi-player', {
+        filters: { payment: false },
+        fields: ['id', 'wallet_id'],
+      });
+};
+
+const updateWalletsId = async (id) => {
+    return await strapi.entityService.update('api::frimi-player.frimi-player',id, {
+        data: { payment: true },
+      });
+};
+
+
+module.exports = { findUserByWalletId, addFrimiUser,getWallets,updateWalletsId };
