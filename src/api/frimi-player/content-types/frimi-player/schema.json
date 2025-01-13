@@ -26,6 +26,10 @@
     },
     "nic": {
       "type": "string"
+    },
+    "payment": {
+      "type": "boolean",
+      "default": false
     }
   }
 }
