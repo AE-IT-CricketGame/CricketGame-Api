@@ -1,24 +1,29 @@
 'use strict';
 
 const axios = require('axios');
-const { getToken } = require('./frimi-token'); // Import the token generation utility
+const { getToken } = require('./frimi-token');
+const { HEADERS } = require('../common/constants');
+const { generateUniqueId } = require('../common/generate-uniqueIds');
 
 const getCustomerDetails = async (uuid, mid, lid) => {
   try {
     // Generate a fresh token
     const token = await getToken();
 
+    const uniqueId = generateUniqueId(30); 
+
     // Construct the request URL
     const url = `${process.env.FRIMI_CUSTOMER_DETAILS_URL}?uuid=${uuid}&mid=${mid}&lid=${lid}`;
+    
 
     // Construct headers
     const headers = {
-      Authorization: `Bearer ${token}`, // Bearer token
-    //   uuid, // Unique ID for the request
-      channel: '2', // Fixed value as per the screenshot
-      version: '1', // Fixed value as per the screenshot
-      requestType: 'LS', // Fixed value as per the screenshot
-      languageCode: 'en', // Fixed value as per the screenshot
+      Authorization: `Bearer ${token}`,
+      uuid: uniqueId,
+      channel: HEADERS.CHANNEL,
+      version: HEADERS.VERSION,
+      requestType: HEADERS.REQUEST_TYPE,
+      languageCode: HEADERS.LANGUAGE_CODE,
       datetime: new Date().toISOString().replace(/T/, ' ').replace(/\..+/, ''), // Dynamic, formatted as "YYYY-MM-DD HH:mm:ss"
     };
 
