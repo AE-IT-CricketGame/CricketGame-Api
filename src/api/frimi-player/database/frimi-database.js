@@ -31,5 +31,19 @@ const updateWalletsId = async (id) => {
       });
 };
 
+const checkUnsubscrbePlayer = async (mobile) => {
+    const existingUser = await strapi.entityService.findMany('api::frimi-player.frimi-player', {
+        filters: { mobile: mobile },
+        limit: 1,
+    });
+    return existingUser.length > 0 ? existingUser[0] : null;
+};
 
-module.exports = { findUserByWalletId, addFrimiUser,getWallets,updateWalletsId };
+
+const unsubuscribePlayer = async (id) => {
+    return await strapi.entityService.delete('api::frimi-player.frimi-player',id);
+};
+
+
+
+module.exports = { findUserByWalletId, addFrimiUser,getWallets,updateWalletsId,checkUnsubscrbePlayer,unsubuscribePlayer };
