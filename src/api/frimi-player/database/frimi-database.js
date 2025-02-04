@@ -44,6 +44,18 @@ const unsubuscribePlayer = async (id) => {
     return await strapi.entityService.delete('api::frimi-player.frimi-player',id);
 };
 
+const getAllPlayerIds = async () => {
+    return await strapi.entityService.findMany('api::frimi-player.frimi-player', {
+        fields: ['id'],
+    });
+};
+
+const resetPaymentStatus = async (id) => {
+    return await strapi.entityService.update('api::frimi-player.frimi-player', id, {
+        data: { payment: false },
+    });
+};
 
 
-module.exports = { findUserByWalletId, addFrimiUser,getWallets,updateWalletsId,checkUnsubscrbePlayer,unsubuscribePlayer };
+
+module.exports = { findUserByWalletId, addFrimiUser,getWallets,updateWalletsId,checkUnsubscrbePlayer,unsubuscribePlayer,getAllPlayerIds,resetPaymentStatus };
