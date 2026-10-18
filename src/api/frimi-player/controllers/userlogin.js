@@ -57,6 +57,7 @@ module.exports = createCoreController('api::frimi-player.frimi-player', () => ({
                 wallet_id: walletId,
                 nic: nic,
                 uuid: uuid,
+                payment:true,
             });
 
             return ctx.send({

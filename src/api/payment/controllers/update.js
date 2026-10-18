@@ -28,13 +28,14 @@ module.exports = createCoreController('api::payment.payment', () => ({
                 .query('api::payment.payment')
                 .findMany({ where: { mobile: mobile } });
 
-            const userId = findUser[0].id;
+            const userId = findUser[0].documentId;
 
-            const entry = await strapi.entityService.update('api::payment.payment', userId, {
+            const entry = await strapi.documents('api::payment.payment').update({
+                documentId: userId,
                 data: {
                     cycle: cycle,
                     log:log,
-                },
+                }
             });
 
 

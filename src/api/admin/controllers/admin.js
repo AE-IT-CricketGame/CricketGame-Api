@@ -46,7 +46,7 @@ module.exports = createCoreController('api::admin.admin', () => ({
             console.log(subscribedObj);
       
             try {
-              const AddLog = await strapi.query('api::admin.admin').create({ data: subscribedObj });
+              const AddLog = await strapi.documents('api::admin.admin').create({ data: subscribedObj });
               ctx.response.status = 200; 
               ctx.response.body = { message: 'Data Add Successfully.' };
             } catch (error) {

@@ -23,16 +23,12 @@ module.exports = createCoreController('api::leaderboard.leaderboard', () => ({
         const updatedUsers = await Promise.all(
             findUsers.map(async user => {
                 const userId = user.id;
-                const updatedUser = await strapi.entityService.update(
-                    'api::leaderboard.leaderboard',
-                    userId,
-                    {
-                        data: {
-                            score: "0/0",
-                            log: "",
-                        },
+                const updatedUser = await strapi.documents('api::leaderboard.leaderboard').update({
+                    documentId: user.documentId,
+                    data: {
+                        score: "0/0",
                     }
-                );
+                });
                 console.log(`User with ID ${userId} updated successfully.`);
                 return updatedUser;
             })
