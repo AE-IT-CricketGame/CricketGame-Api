@@ -23,7 +23,7 @@ module.exports = createCoreController('api::frimi-player.frimi-player', () => ({
         });
       }
 
-      const playerId = existingUser.id;
+      const playerId = existingUser.documentId;
 
       // Unsubscribe player
       const deletePlayer = await dbService.unsubuscribePlayer(playerId);

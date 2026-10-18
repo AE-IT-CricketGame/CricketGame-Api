@@ -17,7 +17,7 @@ module.exports = createCoreController('api::frimi-player.frimi-player', () => ({
 
       // Step 2: Reset payment status one by one
       for (const player of players) {
-        await dbService.resetPaymentStatus(player.id);
+        await dbService.resetPaymentStatus(player.documentId);
       }
 
       return ctx.send({ message: 'Payment status reset successfully for all players.' });

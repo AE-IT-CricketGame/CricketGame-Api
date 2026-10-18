@@ -26,7 +26,7 @@ module.exports = createCoreController('api::frimi-player.frimi-player', () => ({
           const transactionResult = await postTransaction(wallets.wallet_id);
 
           // Update wallet transaction status to true after successful transaction
-        await dbService.updateWalletsId(wallets.id);
+        await dbService.updateWalletsId(wallets.documentId);
 
           processedWallets.push({ walletId: wallets.wallet_id, success: true });
         } catch (error) {
