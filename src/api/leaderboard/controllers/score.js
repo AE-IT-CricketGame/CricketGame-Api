@@ -27,6 +27,7 @@ module.exports = createCoreController('api::leaderboard.leaderboard', () => ({
                     documentId: user.documentId,
                     data: {
                         score: "0/0",
+                        points: 0,
                     }
                 });
                 console.log(`User with ID ${userId} updated successfully.`);
