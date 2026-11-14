@@ -28,8 +28,8 @@ module.exports = createCoreController('api::question.question', () => ({
           throw new Error(`Invalid value for 'runs': ${runs}`);
       }
 
-      const questions = await strapi.query('api::question.question').findMany({ 
-        runs: run,
+      const questions = await strapi.query('api::question.question').findMany({
+        where: { runs: run, publishedAt: { $notNull: true } },
       });
 
       const filteredData = questions.filter((data) => !arrayIds.includes(data.id));

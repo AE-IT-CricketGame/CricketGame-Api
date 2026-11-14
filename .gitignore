@@ -112,3 +112,7 @@ exports
 dist
 build
 .strapi-updater.json
+.env
+# Strapi 5 generated
+.strapi/
+types/generated/

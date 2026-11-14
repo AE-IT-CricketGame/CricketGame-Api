@@ -29,16 +29,13 @@ module.exports = createCoreController('api::payment.payment', () => ({
                 const updatedUsers = await Promise.all(
                     usersToUpdate.map(async user => {
                         const userId = user.id;
-                        const updatedUser = await strapi.entityService.update(
-                            'api::payment.payment',
-                            userId,
-                            {
-                                data: {
-                                    cycle: 0,
-                                    log:"",
-                                },
+                        const updatedUser = await strapi.documents('api::payment.payment').update({
+                            documentId: user.documentId,
+                            data: {
+                                cycle: 0,
+                                log:"",
                             }
-                        );
+                        });
                         console.log(`User with ID ${userId} updated successfully.`);
                         return updatedUser;
                     })
